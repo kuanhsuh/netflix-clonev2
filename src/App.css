@@ -1,0 +1,29 @@
+
+.btn {
+  background: transparent;
+  padding: 5px 15px;
+  border-radius: 0;
+  color: #e5e5e5;
+}
+
+.btn-full {
+  border: 1px solid #FF0A16;
+  transition: border 0.3s;
+}
+
+.btn-full:hover,
+.btn-full:active {
+  color: #fff;
+  border: 1px solid #ff5b5b;
+}
+
+.btn-ghost {
+  border: 1px solid #e5e5e5;
+  transition: border 0.3s;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  color: #fff;
+  border: 1px solid #FF0A16;
+}
