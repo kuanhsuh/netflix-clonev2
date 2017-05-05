@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import 'App.css'
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
-  Switch
+  Switch, 
 } from 'react-router-dom'
 
 import Nav from 'containers/Nav/Nav'
@@ -29,5 +29,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

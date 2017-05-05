@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {fetchSearch} from 'actions/index'
 import Autosuggest from 'react-autosuggest'
 import { Link, withRouter } from 'react-router-dom'
+
 import './Nav.css'
 
 class Nav extends Component {
@@ -45,7 +46,7 @@ class Nav extends Component {
 
   renderSuggestion = (suggestion) => {
     return (
-      <Link to={`/movie/${suggestion.id}`}>
+      <a>
         <img src={`https://image.tmdb.org/t/p/w45${suggestion.img}`} className="searchResult__img" alt="..." />
         <div className="searchText">
           <div className="searchResult__name">
@@ -54,9 +55,16 @@ class Nav extends Component {
             {suggestion.year}
         </div>
         <div className="clearfix"></div>
-      </Link>
+      </a>
     );
   };
+
+  onSuggestionSelected = (event , { suggestion, history }) => {
+    event.preventDefault();
+    // this.context.router.history.push('/movie/'+ suggestion.id)
+    this.props.history.push('/movie/'+ suggestion.id)
+    this.setState({ value: ''});
+  }
 
   onSuggestionsClearRequested = () => {
     this.setState({suggestions: []});
@@ -81,10 +89,9 @@ class Nav extends Component {
           <FormGroup>
             <Autosuggest
               suggestions={suggestions}
-              onSuggestionsFetchRequested={this
-              .onSuggestionsFetchRequested
-              .bind(this)}
+              onSuggestionsFetchRequested={this.onSuggestionsFetchRequested.bind(this)}
               onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+              onSuggestionSelected = {this.onSuggestionSelected.bind(this)}
               getSuggestionValue={this.getSuggestionValue}
               renderSuggestion={this.renderSuggestion}
               inputProps={inputProps}/>
@@ -95,10 +102,14 @@ class Nav extends Component {
   }
 }
 
+Nav.propTypes = {
+  history: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired,
+  }).isRequired,
+};
+
 function mapStateToProps(state) {
   return {searchQueries: state.search}
 }
 
 export default withRouter(connect(mapStateToProps, {fetchSearch})(Nav));
-// export default withRouter(connect(mapStateToProps)(Something))
-// import { withRouter } from 'react-router-dom'
