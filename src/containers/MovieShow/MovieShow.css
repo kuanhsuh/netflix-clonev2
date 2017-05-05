@@ -1,3 +1,18 @@
+.show img {
+  width: 90%;
+}
+
+.show p {
+  line-height: 145%;
+  font-weight: 300;
+}
+
+.show h2,
+.show h3 {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .others {
   padding-bottom: 30px;
 }
@@ -7,12 +22,12 @@
 }
 .others img {
   width: 100%;
+  height: auto;
   border-radius: 8px;
 }
 .others p {
-  color: black;
   text-align: center;
-  font-size: 75%;
+  font-size: 70%;
   font-weight: 100;
   padding-top: 15px;
 }
