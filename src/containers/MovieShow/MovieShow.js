@@ -6,25 +6,36 @@ import {fetchMovie} from 'actions/index'
 class MovieShow extends Component {
   
   componentWillMount() {
-    console.log(this.props.match.params.id)
     this.props.fetchMovie(this.props.match.params.id)
   }
   
   render() {
-
     if(!this.props.movie){
     return <div>Loading</div>;
-    }
+  }
+  console.log(this.props.movie)
     const {original_title, overview, vote_average, vote_count, release_date, poster_path} = this.props.movie
     return (
       <div>
-        <h3>{original_title}</h3><br/>
-        Overview:
-        {overview} <br/>
-        Vote-average: {vote_average}<br/>
-        Vote-count: {vote_count}<br/>
-        Release-Date: {release_date}<br/>
-        Poster Paht: {poster_path}<br/>
+        <section className="show">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-6 text-center">
+                <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt="..." />
+              </div>
+              <div className="col-sm-6">
+                <h2>{original_title}({release_date})</h2>
+                <h3>Ratings</h3>
+                <p>
+                <span className="glyphicon glyphicon-heart" aria-hidden="true"></span> {vote_count}
+                <span className="glyphicon glyphicon-star" aria-hidden="true"></span> {vote_average}
+                </p>
+                <h3>Overview</h3>
+                <p>{overview}</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }

@@ -10,6 +10,7 @@ import Nav from 'containers/Nav/Nav'
 import MovieList from 'containers/MovieList/MovieList'
 import MovieShow from 'containers/MovieShow/MovieShow'
 import NotFound from 'components/NotFound/NotFound';
+import Footer from 'components/Footer/Footer';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
         <Route path="/movie/:id" component={MovieShow}/>
         <Route component={NotFound}/>
         </Switch>
+        <Footer />
       </div>
       </Router>
     );

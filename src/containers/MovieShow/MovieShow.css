@@ -1,0 +1,18 @@
+.others {
+  padding-bottom: 30px;
+}
+.others h4 {
+  text-transform: uppercase;
+  padding-left: 2%;
+}
+.others img {
+  width: 100%;
+  border-radius: 8px;
+}
+.others p {
+  color: black;
+  text-align: center;
+  font-size: 75%;
+  font-weight: 100;
+  padding-top: 15px;
+}

@@ -1,0 +1,21 @@
+.upcoming {
+  padding: 40px 0;
+  height: 100%;
+}
+.upcoming h4 {
+  font-size: 80%;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.upcoming img {
+  margin-top: 15px;
+  width: 100%;
+  height: auto;
+  transform: scale(1.03);
+  transition: opacity 0.5s, transform 0.5s; 
+}
+
+.upcoming img:hover {
+  opacity: 1.0;
+  transform: scale(1.13);
+}
