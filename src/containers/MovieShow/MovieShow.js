@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchMovie, fetchCast, fetchTrailer} from 'actions/index'
 import Cast from './Components/Cast/Cast'
 import './MovieShow.css'
+import { withRouter } from 'react-router-dom'
 
 class MovieShow extends Component {
   
@@ -14,7 +15,7 @@ class MovieShow extends Component {
 
   renderCasts(){
     let castsArray = [];
-    this.props.casts[0]
+    this.props.casts
       .map((item, i) => {
         castsArray.push(<Cast item={item} key={i}/>)
       });
@@ -25,7 +26,7 @@ class MovieShow extends Component {
     let trailersArray = []
     this.props.trailers.map((item, i)=>{
       trailersArray.push(
-        <div className="col-sm-6">
+        <div key={i} className="col-sm-6">
           <iframe width="300" height="169" src={`https://www.youtube.com/embed/${item.key}?rel=0&amp;controls=0&amp;showinfo=0`} frameBorder="0" allowFullScreen></iframe>
         </div>
       )
@@ -37,9 +38,7 @@ class MovieShow extends Component {
     if(!this.props.movie){
     return <div>Loading</div>;
   }
-  console.log(this.props.movie)
     const {original_title, overview, vote_average, vote_count, release_date, poster_path} = this.props.movie
-    console.log(this.props)
     return (
       <div>
         <section className="show">
@@ -92,4 +91,7 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {fetchMovie, fetchCast, fetchTrailer})(MovieShow);
+export default withRouter(connect(mapStateToProps, {fetchMovie, fetchCast, fetchTrailer})(MovieShow))
+
+// export default withRouter(connect(mapStateToProps)(Something))
+// import { withRouter } from 'react-router-dom'

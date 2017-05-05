@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import {Navbar, FormGroup, Button} from 'react-bootstrap'
+import {Navbar, FormGroup} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {fetchSearch} from 'actions/index'
 import Autosuggest from 'react-autosuggest'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import './Nav.css'
 
 class Nav extends Component {
@@ -99,4 +99,6 @@ function mapStateToProps(state) {
   return {searchQueries: state.search}
 }
 
-export default connect(mapStateToProps, {fetchSearch})(Nav);
+export default withRouter(connect(mapStateToProps, {fetchSearch})(Nav));
+// export default withRouter(connect(mapStateToProps)(Something))
+// import { withRouter } from 'react-router-dom'

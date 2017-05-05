@@ -4,7 +4,7 @@ export default function(state = [], action){
   switch(action.type){
     case FETCH_CAST:
       const CAST = action.payload.data.cast.slice(0,6)
-      return [CAST]
+      return CAST
     default:
       return state;
   }
