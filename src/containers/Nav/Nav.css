@@ -71,9 +71,12 @@
   color: #FF0A16;
   font-size: 120%;
   font-weight: 700;
-  text-transform: uppercase
+  text-transform: uppercase;
+  transition: color 0.5s;
 }
-
+.navbar-default .navbar-brand:hover{
+  color: #ff5b5b;
+}
 .navbar-default {
   background-color: transparent;
   border-color: transparent;

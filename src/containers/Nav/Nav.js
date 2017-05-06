@@ -61,7 +61,6 @@ class Nav extends Component {
 
   onSuggestionSelected = (event , { suggestion, history }) => {
     event.preventDefault();
-    // this.context.router.history.push('/movie/'+ suggestion.id)
     this.props.history.push('/movie/'+ suggestion.id)
     this.setState({ value: ''});
   }
@@ -82,7 +81,7 @@ class Nav extends Component {
       <Navbar fluid>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Netflix<small>(react-clone)</small></a>
+            <Link to='/'>Netflix<small>(react-clone)</small></Link>
           </Navbar.Brand>
         </Navbar.Header>
         <Navbar.Form pullRight>

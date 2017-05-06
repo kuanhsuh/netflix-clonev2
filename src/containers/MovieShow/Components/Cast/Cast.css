@@ -1,4 +1,18 @@
 .panel-default {
   background: transparent;
-  height: 200px;
+  height: 250px;
+}
+@media only screen and (max-width: 480px) {
+  .panel-default {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .others img {
+    width: 70% !important;
+  }
+  .panel-body {
+    text-align: center;
+  }
 }
