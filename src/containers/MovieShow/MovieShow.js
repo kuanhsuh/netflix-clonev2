@@ -13,6 +13,14 @@ class MovieShow extends Component {
     this.props.fetchTrailer(this.props.match.params.id)
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.match.params.id !== this.props.match.params.id){
+      this.props.fetchMovie(this.props.match.params.id)
+      this.props.fetchCast(this.props.match.params.id)
+      this.props.fetchTrailer(this.props.match.params.id)
+    }
+  }
+  
   renderCasts(){
     let castsArray = [];
     this.props.casts
