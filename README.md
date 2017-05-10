@@ -2,6 +2,12 @@
 
 - demo: http://netflix-clonev2.surge.sh/
 
+-Prototype : http://netflix-clone.surge.sh/#/7 (simple bootstrap, mainly to write out the react functions)
+
+-Template slicing: https://github.com/kuanhsuh/netflix-clone-html5 (Use Bootstrap to clone netflix major component)
+
+
+Let me know what you guys think!!!
 
 ### User Story:
 
